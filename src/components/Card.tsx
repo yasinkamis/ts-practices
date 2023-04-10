@@ -1,5 +1,7 @@
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { colors, fontSizes, shadows, flexCenter, spaces, borderRadius } from "../utils/constant";
+
 
 interface ICardProps {
   image: string | undefined;
@@ -8,40 +10,39 @@ interface ICardProps {
 }
 
 const Card: FC<ICardProps> = ({ image, title, name }) => {
-  const defaultImageSrc = "https://images.pexels.com/photos/3411134/pexels-photo-3411134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  const defaultImageSrc = "https://images.pexels.com/photos/3411134/pexels-photo-3411134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
-  return <Wrapper>
-    <ImageWrapper>
-      <Image src={image || defaultImageSrc} alt="404!" />
-    </ImageWrapper>
-    <TextWrapper>
-      <h3>{name}</h3>
-      <p>{title}</p>
-    </TextWrapper>
-  </Wrapper>;
+  return (
+    <Wrapper>
+      <ImageWrapper>
+        <Image src={image || defaultImageSrc} alt="404!" />
+      </ImageWrapper>
+      <TextWrapper>
+        <h3>{name}</h3>
+        <p>{title}</p>
+      </TextWrapper>
+    </Wrapper>
+  );
 };
 
 export default Card;
 
 const Wrapper = styled.div`
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: ${colors.light};
+  border-radius: ${borderRadius.all};
+  box-shadow: ${shadows.medium};
   width: 300px;
   min-height: 400px;
-  
 `;
 
 const ImageWrapper = styled.div`
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: ${borderRadius.top};
+  box-shadow: ${shadows.medium};
   width: 300px;
   min-height: 300px;
   position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter()};
 `;
 
 const Image = styled.img`
@@ -53,15 +54,19 @@ const Image = styled.img`
 
 const TextWrapper = styled.div`
   min-height: 100px;
-  border-radius: 0 0 10px 10px;
-  padding: 20px;
+  border-radius: ${borderRadius.bottom};
+  padding: ${spaces.medium};
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
+  gap: ${spaces.small};
+  h3 {
+    color: ${colors.primary};
+    font-size: ${fontSizes.large};
+  }
   p {
-    color: #fff;
-    font-size: 14px;
+    color: ${colors.secondary};
+    font-size: ${fontSizes.medium};
   }
 `;

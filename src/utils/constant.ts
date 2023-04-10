@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
-export const color = {
+export const colors = {
   primary: '#007bff',
   secondary: '#6c757d',
   light: '#f8f9fa',
@@ -15,16 +15,16 @@ export const fontSizes = {
   large: '20px',
 };
 
-export const space = {
+export const spaces = {
     small: '8px',
     medium: '10px',
     large: '20px',
 };
 
-export const shadow = {
-    small: '8px',
-    medium: '10px',
-    large: '20px',
+export const shadows = {
+    small: '0 2px 4px rgba(0,0,0,0.2)',
+    medium: '0 4px 6px rgba(0,0,0,0.2)',
+    large: '0 8px 16px rgba(0,0,0,0.2)',
 };
 
 export const flexCenter = () => css`
@@ -33,8 +33,8 @@ export const flexCenter = () => css`
   align-items: center;
 `;
 
-const borderRadius = {
+export const borderRadius = {
     all: '10px',
     top: '10px 10px 0 0',
     bottom: '0 0 10px 10px',
-  };
+};

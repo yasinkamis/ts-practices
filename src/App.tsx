@@ -3,6 +3,7 @@ import { Home, Login } from "./pages";
 import Layout from "./layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "./utils/constant";
 
 const App: FC = () => {
   return (
@@ -21,5 +22,5 @@ const App: FC = () => {
 export default App;
 
 const ErrorText = styled.h1`
-  color: #fff;
+  color: ${colors.white};
 `;
