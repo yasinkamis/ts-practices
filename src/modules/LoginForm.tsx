@@ -3,15 +3,17 @@ import { Form, Button } from "antd";
 import { toast } from 'react-toastify';
 import formFields, { FormField } from "../utils/FormFields";
 import { useObjectEqual } from "../hooks";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm: FC = ({ ...props }) => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
+  const {isEqual} = useObjectEqual();
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({
     name: "Yasin",
     surname: "Kamış",
     password: "123",
   });
-  const {isEqual} = useObjectEqual();
 
   const handleFormChange = (name: string, value: any) => {
     setFormValues((prevState) => ({ ...prevState, [name]: value }));
@@ -22,6 +24,7 @@ const LoginForm: FC = ({ ...props }) => {
 
     if (isEqual(formValues, successValues)) {
       toast.success("Success!");
+      navigate("/home")
     } else {
       toast.error("User Information Incorrect!");
     }

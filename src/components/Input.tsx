@@ -6,12 +6,16 @@ interface InputProps {
   placeholder: string;
   allowClear?: boolean;
   type?: "text" | "password";
+  name?: string;
+  onChange?: (e: any) => void;
 }
 
 const InputComponent: FC<InputProps> = ({
   placeholder,
   allowClear = true,
   type,
+  name,
+  onChange,
   ...props
 }) => {
 
@@ -19,13 +23,15 @@ const InputComponent: FC<InputProps> = ({
     <Input.Password
       placeholder={placeholder}
       required
+      name={name}
+      onChange={onChange}
       iconRender={(visible) =>
         visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
       }
       {...props}
     />
   ) : (
-    <Input placeholder={placeholder} allowClear={allowClear} {...props} />
+    <Input placeholder={placeholder} onChange={onChange} name={name} allowClear={allowClear} {...props} />
   );
 };
 
