@@ -55,7 +55,7 @@ const ColorPicker: FC<IProps> = ({ type, setColors }) => {
         <Container>
             <ColorGrid>
                 {colors.map((color) => (
-                    <ColorOption
+                    <ColorOptionWrapper
                         key={color.value}
                         style={{ backgroundColor: color.value }}
                         isSelected={selectedColor === color.value}
@@ -83,10 +83,10 @@ type ColorOptionProps = {
     isSelected: boolean;
 };
 
-const ColorOption = styled.div<ColorOptionProps>`
+const ColorOptionWrapper = styled.div<ColorOptionProps>`
   width: 100%;
   height: 10px;
-${flexCenter()};
+  ${flexCenter()};
   font-weight: bold;
   border: ${(props) => (props.isSelected ? '0.5px solid #FFF' : '0.5px solid #999')};
   cursor: pointer;
