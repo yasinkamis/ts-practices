@@ -1,6 +1,6 @@
 import { FC, useState, ChangeEvent } from "react";
 import styled from "styled-components";
-import { Card, Input } from "../components";
+import { Card, ColorPicker, Input, DownloadButton } from "../components";
 import { flexCenter, spaces } from "../utils/constant";
 
 interface CardValues {
@@ -12,6 +12,7 @@ interface CardValues {
 
 const Home: FC = () => {
   const [cardValues, setCardValues] = useState<CardValues>({});
+  const [colors, setColors] = useState<{[key: string]: string}>({ background: "#FFF", title: "#000", name: "#000" });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -20,10 +21,18 @@ const Home: FC = () => {
 
   return (
     <Content>
-      <Card image={cardValues.image} title={cardValues.title} name={cardValues.name} />
-      <Input name="name" placeholder="Name" onChange={handleInputChange} />
-      <Input name="title" placeholder="Title" onChange={handleInputChange} />
-      <Input name="image" placeholder="Image Link" onChange={handleInputChange} />
+      <CardWrapper>
+      <StyledCard image={cardValues.image} title={cardValues.title} name={cardValues.name} colors={colors} />
+      <DownloadButton/>
+      </CardWrapper>
+      <Inputs>
+        <ColorPicker type="background" setColors={setColors} />
+        <StyledInput name="name" placeholder="Name" onChange={handleInputChange} />
+        <ColorPicker type="name" setColors={setColors} />
+        <StyledInput name="title" placeholder="Title" onChange={handleInputChange} />
+        <ColorPicker type="title" setColors={setColors} />
+        <StyledInput name="image" placeholder="Image Link" onChange={handleInputChange} />
+      </Inputs>
     </Content>
   );
 };
@@ -31,8 +40,30 @@ const Home: FC = () => {
 export default Home;
 
 const Content = styled.div`
-  width: 50%;
+  width: 620px;
   ${flexCenter()};
-  flex-direction: column;
   gap: ${spaces.medium};
+`;
+
+const StyledCard = styled(Card)`
+  width: auto;
+`;
+
+const Inputs = styled.div`
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  gap: ${spaces.small};
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  gap: ${spaces.small};
+`;
+
+const StyledInput = styled(Input)`
+  width: 100%;
+  font-size: ${spaces.medium};
 `;

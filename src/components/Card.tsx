@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { colors, fontSizes, shadows, flexCenter, spaces, borderRadius } from "../utils/constant";
 
 
@@ -7,19 +7,20 @@ interface ICardProps {
   image: string | undefined;
   title: string | undefined;
   name: string | undefined;
+  colors: { [key: string]: string }
 }
 
-const Card: FC<ICardProps> = ({ image, title, name }) => {
+const Card: FC<ICardProps> = ({ image, title, name, colors }) => {
   const defaultImageSrc = "https://images.pexels.com/photos/3411134/pexels-photo-3411134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
   return (
-    <Wrapper>
+    <Wrapper style={{ backgroundColor: colors.background }}>
       <ImageWrapper>
         <Image src={image || defaultImageSrc} alt="404!" />
       </ImageWrapper>
       <TextWrapper>
-        <h3>{name}</h3>
-        <p>{title}</p>
+        <h3 style={{ color: colors.name }}>{name}</h3>
+        <p style={{ color: colors.title }}>{title}</p>
       </TextWrapper>
     </Wrapper>
   );
@@ -56,8 +57,7 @@ const TextWrapper = styled.div`
   min-height: 100px;
   border-radius: ${borderRadius.bottom};
   padding: ${spaces.medium};
-  display: flex;
-  justify-content: center;
+  ${flexCenter()}
   align-items: flex-start;
   flex-direction: column;
   gap: ${spaces.small};
@@ -67,6 +67,6 @@ const TextWrapper = styled.div`
   }
   p {
     color: ${colors.secondary};
-    font-size: ${fontSizes.medium};
+    font-size: ${fontSizes.small};
   }
 `;

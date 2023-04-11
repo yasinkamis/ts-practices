@@ -38,3 +38,7 @@ export const borderRadius = {
     top: '10px 10px 0 0',
     bottom: '0 0 10px 10px',
 };
+
+export const fontFamilies = {
+  primary: 'Roboto, sans-serif',
+};

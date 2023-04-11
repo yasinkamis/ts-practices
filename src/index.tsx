@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ToastContainer } from "react-toastify";
+import { fontFamilies } from "./utils/constant";
+import { createGlobalStyle } from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
 
-import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: ${fontFamilies.primary};
     h1, h2, h3, h4, h5, h6 {
       color: #fff;
     }
