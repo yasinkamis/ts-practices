@@ -1,0 +1,40 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "plugins": ["prettier", "@typescript-eslint", "import"],
+  "extends": [
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript":true
+    },
+    "react":{
+      "version":"detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/self-closing-comp": "error",
+    "prettier/prettier": "error",
+    "object-shorthand":"error",
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        "props": "never",
+        "children": "never"
+      }
+    ]
+  }
+}

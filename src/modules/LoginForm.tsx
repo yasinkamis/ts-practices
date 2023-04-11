@@ -1,32 +1,32 @@
-import React, { FC, useState } from "react";
-import { Form, Button } from "antd";
+import React, { FC, useState } from 'react';
+import { Form, Button } from 'antd';
 import { toast } from 'react-toastify';
-import formFields, { FormField } from "../utils/FormFields";
-import { useObjectEqual } from "../hooks";
-import { useNavigate } from "react-router-dom";
+import formFields, { FormField } from '../utils/FormFields';
+import { useObjectEqual } from '../hooks';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm: FC = ({ ...props }) => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const {isEqual} = useObjectEqual();
+  const { isEqual } = useObjectEqual();
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({
-    name: "Yasin",
-    surname: "Kamış",
-    password: "123",
+    name: 'Yasin',
+    surname: 'Kamış',
+    password: '123',
   });
 
   const handleFormChange = (name: string, value: any) => {
-    setFormValues((prevState) => ({ ...prevState, [name]: value }));
+    setFormValues(prevState => ({ ...prevState, [name]: value }));
   };
 
   const onFinish = () => {
-    const successValues = { name: "Yasin", surname: "Kamış", password: "123" };
+    const successValues = { name: 'Yasin', surname: 'Kamış', password: '123' };
 
     if (isEqual(formValues, successValues)) {
-      toast.success("Success!");
-      navigate("/home")
+      toast.success('Success!');
+      navigate('/home');
     } else {
-      toast.error("User Information Incorrect!");
+      toast.error('User Information Incorrect!');
     }
   };
 
@@ -53,7 +53,10 @@ const LoginForm: FC = ({ ...props }) => {
         </Form.Item>
       ))}
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+        >
           Submit
         </Button>
       </Form.Item>

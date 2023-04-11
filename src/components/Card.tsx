@@ -1,22 +1,24 @@
-import { FC } from "react";
-import styled from "styled-components";
-import { colors, fontSizes, shadows, flexCenter, spaces, borderRadius } from "../utils/constant";
-
+import { FC } from 'react';
+import styled from 'styled-components';
+import { colors, fontSizes, shadows, flexCenter, spaces, borderRadius } from '../utils/constant';
 
 interface ICardProps {
   image: string | undefined;
   title: string | undefined;
   name: string | undefined;
-  colors: { [key: string]: string }
+  colors: { [key: string]: string };
 }
 
 const Card: FC<ICardProps> = ({ image, title, name, colors }) => {
-  const defaultImageSrc = "https://images.pexels.com/photos/3411134/pexels-photo-3411134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+  const defaultImageSrc = 'https://images.pexels.com/photos/3411134/pexels-photo-3411134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 
   return (
     <Wrapper style={{ backgroundColor: colors.background }}>
       <ImageWrapper>
-        <Image src={image || defaultImageSrc} alt="404!" />
+        <Image
+          src={image || defaultImageSrc}
+          alt="404!"
+        />
       </ImageWrapper>
       <TextWrapper>
         <h3 style={{ color: colors.name }}>{name}</h3>

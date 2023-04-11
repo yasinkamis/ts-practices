@@ -1,7 +1,7 @@
-import { FC, useState, ChangeEvent } from "react";
-import styled from "styled-components";
-import { Card, ColorPicker, Input, DownloadButton } from "../components";
-import { flexCenter, spaces } from "../utils/constant";
+import { FC, useState, ChangeEvent } from 'react';
+import styled from 'styled-components';
+import { Card, ColorPicker, Input, DownloadButton } from '../components';
+import { flexCenter, spaces } from '../utils/constant';
 
 interface CardValues {
   name?: string;
@@ -12,26 +12,56 @@ interface CardValues {
 
 const Home: FC = () => {
   const [cardValues, setCardValues] = useState<CardValues>({});
-  const [colors, setColors] = useState<{[key: string]: string}>({ background: "#FFF", title: "#000", name: "#000" });
+  const [colors, setColors] = useState<{ [key: string]: string }>({
+    background: '#FFF',
+    title: '#000',
+    name: '#000',
+  });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setCardValues((prevValues) => ({ ...prevValues, [name]: value }));
+    setCardValues(prevValues => ({ ...prevValues, [name]: value }));
   };
 
   return (
     <Content>
       <CardWrapper>
-      <StyledCard image={cardValues.image} title={cardValues.title} name={cardValues.name} colors={colors} />
-      <DownloadButton/>
+        <StyledCard
+          image={cardValues.image}
+          title={cardValues.title}
+          name={cardValues.name}
+          colors={colors}
+        />
+        <DownloadButton />
       </CardWrapper>
       <Inputs>
-        <ColorPicker type="background" setColors={setColors} />
-        <StyledInput name="name" placeholder="Name" onChange={handleInputChange} />
-        <ColorPicker type="name" setColors={setColors} />
-        <StyledInput name="title" placeholder="Title" onChange={handleInputChange} />
-        <ColorPicker type="title" setColors={setColors} />
-        <StyledInput name="image" placeholder="Image Link" onChange={handleInputChange} />
+        <ColorPicker
+          type="background"
+          setColors={setColors}
+        />
+        <StyledInput
+          name="name"
+          placeholder="Name"
+          onChange={handleInputChange}
+        />
+        <ColorPicker
+          type="name"
+          setColors={setColors}
+        />
+        <StyledInput
+          name="title"
+          placeholder="Title"
+          onChange={handleInputChange}
+        />
+        <ColorPicker
+          type="title"
+          setColors={setColors}
+        />
+        <StyledInput
+          name="image"
+          placeholder="Image Link"
+          onChange={handleInputChange}
+        />
       </Inputs>
     </Content>
   );

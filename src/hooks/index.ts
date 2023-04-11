@@ -1,1 +1,1 @@
-export {default as useObjectEqual} from './useObjectEqual';
+export { default as useObjectEqual } from './useObjectEqual';

@@ -1,20 +1,16 @@
 import { FC, ReactNode } from 'react';
-import styled from "styled-components";
-import { colors, flexCenter, spaces, borderRadius } from "../utils/constant";
+import styled from 'styled-components';
+import { colors, flexCenter, spaces } from '../utils/constant';
 
 interface Props {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout: FC<Props> = ({ children }): JSX.Element => {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  )
-}
+  return <Wrapper>{children}</Wrapper>;
+};
 
-export default Layout
+export default Layout;
 
 const Wrapper = styled.section`
   width: 100%;

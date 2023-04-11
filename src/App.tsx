@@ -1,18 +1,27 @@
-import { FC } from "react";
-import { Home, Login } from "./pages";
-import Layout from "./layout";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
-import { colors } from "./utils/constant";
+import { FC } from 'react';
+import { Home, Login } from './pages';
+import Layout from './layout';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import { colors } from './utils/constant';
 
 const App: FC = () => {
   return (
     <Layout>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<ErrorText>404!</ErrorText>} />
+          <Route
+            path="/"
+            element={<Login />}
+          />
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="*"
+            element={<ErrorText>404!</ErrorText>}
+          />
         </Routes>
       </Router>
     </Layout>

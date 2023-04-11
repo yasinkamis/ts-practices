@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import { LoginForm } from "../modules";
-import styled from "styled-components";
-import { colors, spaces, borderRadius, flexCenter } from "../utils/constant";
+import { FC } from 'react';
+import { LoginForm } from '../modules';
+import styled from 'styled-components';
+import { colors, spaces, borderRadius, flexCenter } from '../utils/constant';
 
 const Login: FC = () => {
   return (
@@ -9,10 +9,10 @@ const Login: FC = () => {
       <Title>Lütfen Giriş Yapınız</Title>
       <StyledLoginForm />
     </Content>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
 
 const Title = styled.h1`
   color: ${colors.white};
